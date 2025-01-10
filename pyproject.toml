@@ -1,24 +1,23 @@
 # Project metadata
 [tool.poetry]
-name = "production_demo"
+name = "quickstart"
 version = "0.0.1"
-description = "A simple example to get started with the restack-ai SDK"
+description = "A quickstart for Restack"
 authors = [
     "Restack Team <service@restack.io>",
 ]
 readme = "README.md"
-packages = [{include = "src"}]
+packages = [
+    {include = "src", format = "sdist"}
+]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-restack-ai = "^0.0.48"
 watchfiles = "^1.0.0"
-openai = "^1.57.2"
-
-[tool.poetry.dev-dependencies]
-pytest = "6.2"  # Optional: Add if you want to include tests in your example
+pydantic = "^2.10.4"
 
 # Build system configuration
+restack-ai = "^0.0.52"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
@@ -27,6 +26,6 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 dev = "src.services:watch_services"
 services = "src.services:run_services"
-workflow = "schedule_workflow:run_schedule_workflow"
+schedule = "schedule_workflow:run_schedule_workflow"
 interval = "schedule_interval:run_schedule_interval"
-scale = "schedule_scale:run_schedule_scale"
+calendar = "schedule_calendar:run_schedule_calendar"
